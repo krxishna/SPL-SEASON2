@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPL Season 2 Tournament</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: #007BFF;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+            flex: 1;
+        }
+        section {
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #007BFF;
+        }
+        .scorecard {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .team {
+            background: #007BFF;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 45%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .team h3 {
+            margin: 0 0 10px 0;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .team p {
+            font-size: 1.2em;
+            text-align: center;
+            margin: 5px 0;
+        }
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .controls button {
+            padding: 10px 15px;
+            font-size: 1em;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #007BFF;
+            color: white;
+            transition: background 0.3s;
+        }
+        .controls button:hover {
+            background: #0056b3;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #007BFF;
+            color: white;
+            position: relative;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SPL Season 2 Tournament</h1>
+        <nav>
+            <ul>
+                <li><a href="#scorecard">Match Scorecard</a></li>
+                <li><a href="#leaderboard">Leaderboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="scorecard">
+            <h2>Scorecard</h2>
+            <div class="scorecard">
+                <div class="team" id="teamA">
+                    <h3>Team A</h3>
+                    <p>Runs: <span id="runsA">0</span></p>
+                    <p>Wickets: <span id="wicketsA">0</span></p>
+                </div>
+                <div class="team" id="teamB">
+                    <h3>Team B</h3>
+                    <p>Runs: <span id="runsB">0</span></p>
+                    <p>Wickets: <span id="wicketsB">0</span></p>
+                </div>
+            </div>
+            <div class="controls">
+                <button onclick="addRuns('A', 1)">Add 1 Run to Team A</button>
+                <button onclick="addRuns('A', 2)">Add 2 Runs to Team A</button>
+                <button onclick="addRuns('A', 4)">Add 4 Runs to Team A</button>
+                <button onclick="addRuns('A', 6)">Add 6 Runs to Team A</button>
+                <button onclick="addWicket('A')">Add Wicket to Team A</button>
+                <br>
+                <button onclick="addRuns('B', 1)">Add 1 Run to Team B</button>
+                <button onclick="addRuns('B', 2)">Add 2 Runs to Team B</button>
+                <button onclick="addRuns('B', 4)">Add 4 Runs to Team B</button>
+                <button onclick="addRuns('B', 6)">Add 6 Runs to Team B</button>
+                <button onclick="addWicket('B')">Add Wicket to Team B</button>
+                <br>
+                <button onclick="resetScore()">Reset Scores</button>
+            </div>
+        </section>
+
+        <section id="leaderboard">
+            <h2>Players Leaderboard</h2>
+            <ul>
+                <li>1. Sehajveer</li>
+                <li>2. Simar</li>
+                <li>3. Aviral</li>
+                <li>4. Kohinoor</li>
+                <li>5. Simer</li>
+                <li>6. Gaurav</li>
+                <li>7. Shalok</li>
+                <li>8. Ritvik</li>
+                <li>9. Tanveer</li>
+                <li>10. Nihal</li>
+                <li>11. Anush</li>
+                <li>12. Yuktansh</li>
+                <li>13. Kanak</li>
+                <li>14. Drishti</li>
+                <li>15. Manroop</li>
+                <li>16. Sifat</li>
+                <li>17. Suhani</li>
+                <li>18. Krishna</li>
+                <li>19. Mehar</li>
+                <li>20. Vihaan</li>
+                <li>21. Yuvraj</li>
+                <li>22. Ramit</li>
+                <li>23. Bhriti</li>
+                <li>24. Nicole</li>
+                <li>25. Pranika</li>
+                <li>26. Mannan</li>
+                <li>27. Simer</li>
+                <li>28. Bhajneet</li>
+                <li>29. Kishnoor</li>
+                <li>30. Swaran</li>
+                <li>31. Lucky</li>
+                <li>32. Arshleen</li>
+                <li>33. Yashleen</li>
+                <li>34. Sargun</li>
+                <li>35. Sargun</li>
+                <li>36. Jeevika</li>
+                <li>37. Guneet</li>
+                <li>38. Vani</li>
+                <li>39. Mitul</li>
+                <li>40. Bhumi</li>
+                <li>41. Ashmeet</li>
+                <li>42. Shivansh</li>
+                <li>43. Gurnoor</li>
+                <li>44. Apeksha</li>
+                <li>45. Sanya</li>
+                <li>46. Kartik</li>
+                <li>47. Daksh</li>
+                <li>48. Japnav</li>
+                <li>49. Naitik</li>
+                <li>50. Shireen</li>
+                <li>51. Adwita</li>
+                <li>52. Aabhas</li>
+                <li>53. Prabhkirat</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SPL Tournament. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let runsA = 0;
+        let wicketsA = 0;
+        let runsB = 0;
+        let wicketsB = 0;
+
+        function addRuns(team, runs) {
+            if (team === 'A') {
+                runsA += runs;
+                document.getElementById('runsA').innerText = runsA;
+            } else {
+                runsB += runs;
+                document.getElementById('runsB').innerText = runsB;
+            }
+        }
+
+        function addWicket(team) {
+            if (team === 'A') {
+                wicketsA += 1;
+                document.getElementById('wicketsA').innerText = wicketsA;
+            } else {
+                wicketsB += 1;
+                document.getElementById('wicketsB').innerText = wicketsB;
+            }
+        }
+
+        function resetScore() {
+            runsA = 0;
+            wicketsA = 0;
+            runsB = 0;
+            wicketsB = 0;
+            document.getElementById('runsA').innerText = runsA;
+            document.getElementById('wicketsA').innerText = wicketsA;
+            document.getElementById('runsB').innerText = runsB;
+            document.getElementById('wicketsB').innerText = wicketsB;
+        }
+    </script>
+</body>
+</html>
